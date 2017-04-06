@@ -27,7 +27,7 @@ void Retriever::search_files() {
 	to_download_files.emplace_back(file2);
 
 }
-void Retriever::download(int thread_count) const
+void Retriever::download(int thread_count)
 {
 	//current directory list
 	/*
@@ -59,7 +59,8 @@ void Retriever::download(int thread_count) const
 		//dst << src.rdbuf();
 		//session->endDownload();
 		cout << get<0>(f) << ", " << crc32.checksum() << endl;
-		check_string  check = make_tuple(dst_file, crc32.checksum());
+		check_string check = make_tuple(dst_file, crc32.checksum());
+
 		downloaded_files.push_back(check);
 
 	}

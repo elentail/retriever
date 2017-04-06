@@ -3,23 +3,15 @@
 #ifndef  _RETRIEVER_H_
 #define _RETRIEVER_H_
 
-
 #include "common.h"
-#include "Poco/Net/FTPClientSession.h"
-#include "Poco/Checksum.h"
-#include "Poco/File.h"
-#include "Poco/FileStream.h"
-#include "Poco/StringTokenizer.h"
-
-using namespace Poco::Net;
-using Poco::StringTokenizer;
+#include "poco_common.h"
 
 class Retriever
 {
 private:
 
 	// custom type
-	using check_string = tuple<string, unsigned int>;
+	using check_string = tuple<string, Poco::UInt32>;
 
 	// download file list, local path
 	vector<double_string> to_download_files;
@@ -40,7 +32,7 @@ public:
 	Retriever(string hostname);
 	Retriever(string hostname, string id, string pw);
 
-	void download(int thread_count = 1) const;
+	void download(int thread_count = 1);
 };
 
 #endif // !
